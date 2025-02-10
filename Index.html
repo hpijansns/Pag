@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    .payment-container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .payment-methods {
+      text-align: left;
+    }
+
+    .payment-method {
+      margin: 10px 0;
+    }
+
+    button {
+      background-color: #ff8c00;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #e67e00;
+    }
+
+    .wallet-logos {
+      margin-top: 20px;
+    }
+
+    .wallet-logos img {
+      max-width: 50px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-container">
+    <h1>Select a Payment Method</h1>
+
+    <div class="payment-methods">
+      <div class="payment-method">
+        <input type="radio" name="payment" id="phonepe" value="PhonePe">
+        <label for="phonepe">
+          PhonePe <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/PhonePe_Logo.png" alt="PhonePe" style="height: 20px;">
+        </label>
+      </div>
+      <div class="payment-method">
+        <input type="radio" name="payment" id="googlepay" value="Google Pay">
+        <label for="googlepay">
+          Google Pay <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Google_Pay_Logo.svg" alt="Google Pay" style="height: 20px;">
+        </label>
+      </div>
+      <div class="payment-method">
+        <input type="radio" name="payment" id="paytm" value="Paytm">
+        <label for="paytm">
+          Paytm <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Paytm_logo.png" alt="Paytm" style="height: 20px;">
+        </label>
+      </div>
+    </div>
+
+    <button onclick="handlePurchase()">Purchase</button>
+  </div>
+
+  <script>
+    function handlePurchase() {
+      const selectedPayment = document.querySelector('input[name="payment"]:checked');
+      if (selectedPayment) {
+        const upiLink = `upi://pay?pa=pintukumarmeena992239.rzp@icici&pn=Pintu%20Kumar&mc=0000&tid=1234567890&tr=TXN12345&tn=Payment%20Test&am=1&cu=INR`;
+        window.location.href = upiLink;
+      } else {
+        alert("Please select a payment method.");
+      }
+    }
+  </script>
+</body>
+</html>
